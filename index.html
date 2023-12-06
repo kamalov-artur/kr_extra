@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Неравенства</title>
+    <script>
+        function checkInequalities() {
+            var A = parseFloat(document.getElementById("inputA").value);
+            var B = parseFloat(document.getElementById("inputB").value);
+            var C = parseFloat(document.getElementById("inputC").value);
+
+            var result = document.getElementById("result");
+
+            if (A < B && B < C) {
+                result.innerHTML = "Выполняется неравенство A < B < C. Даны вещественные числа: A, B, C. Определить, выполняются ли неравенства A < B < C или A > B > C и какое именно неравенство выполняется.";
+            } else if (A > B && B > C) {
+                result.innerHTML = "Выполняется неравенство A > B > C";
+            } else {
+                result.innerHTML = "Ни одно из неравенств не выполняется";
+            }
+        }
+        function sendToAddressBar() {
+            var A = parseFloat(document.getElementById("inputA").value);
+            var B = parseFloat(document.getElementById("inputB").value);
+            var C = parseFloat(document.getElementById("inputC").value);
+
+            var result = document.getElementById("result").innerHTML;
+
+            var url = "https://www.yandex.ru/search/?" + "?A=" + A + "&B=" + B + "&C=" + C + "&result=" + encodeURIComponent(result);
+
+            window.location.href = url;
+        }
+    </script>
+    
+</head>
+<body>
+
+    <nav>
+        <a href="index_main.html">Главная</a>
+        <a href="passport.html">Паспорт</a>
+        <b href="index.html">Решение алгоритмической задачи</b>
+        <a href="dom.html">DOM</a>
+        
+</nav>
+    <h1>Неравенства</h1>
+    <p1>1012. Даны вещественные числа: A, B, C. Определить, выполняются ли неравенства A < B < C или A > B > C и какое именно неравенство выполняется.<br><br></p1>
+    <label for="inputA">A:</label>
+    <input type="number" id="inputA"><br><br>
+    <label for="inputB">B:</label>
+    <input type="number" id="inputB"><br><br>
+    <label for="inputC">C:</label>
+    <input type="number" id="inputC"><br><br>
+    <button onclick="checkInequalities()">Проверить неравенства</button><br><br>
+    <button onclick="sendToAddressBar()">Отправить результаты на сервер</button><br><br>
+    <div id="result"></div>
+</body>
+</html>
